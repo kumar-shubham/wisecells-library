@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css">
+<link rel="stylesheet" type="text/css" href="./../../bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./../../bootstrap/css/bootstrap.responsive.css">
+<link rel="stylesheet" type="text/css" href="./../../bootstrap/css/bootstrap.responsive.min.css">
+<link rel="stylesheet" type="text/css" href="./../../bootstrap/css/bootstrap.css">
+{% load bootstrap_toolkit %}
+</head>
+<body background="background.jpg">
+	<div id="wrap" class="container clearfix" data-role="page">
+	<div class="navbar ">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          
+          <div class="nav-collapse">
+            <ul class="nav">
+            	<li><a href="/library/">Home</a></li>
+              <li><a href="/library/details/">Student Details</a></li>
+              <li><a href="/library/addbook/">Add Books</a></li>
+              <li><a href="/library/addstudent/">Add Student</a></li>
+              <li class="active"><a href="#">Error</a></li>
+            </ul>
+            <p class="navbar-text pull-right">
+           		Logged In as <font color=brown>{{user}}</font> (<a href="/logout/">Logout?</a>)
+            	</p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+
+	<div class="container">
+<h3><font color=red>{{ error_msg }}</font></h3>
+<a href="/login/"><button class="btn">Click Here To Login</button></a>
+</div>
+</body>
+</html>

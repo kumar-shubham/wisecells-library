@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css">
+<link rel="stylesheet" type="text/css" href="./../../bootstrap/css/bootstrap.css">
+{% load bootstrap_toolkit %}
+</head>
+<div class="pull-right"><a href="/login/"><button class="btn btn-primary">Return to login</button></a></div>
+<h3>Hello!!! <font color=orange>{{ student }}</font></h3>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% if books %}
+	<p><h3> Books Issued to you:</h3></p>
+	<p>
+		<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Books Name</th>
+		</tr>
+	</thead>
+	{% else %}
+    <p><h3><strong>Well, No details Found</strong></h3</p>
+
+{% endif %}
+</div>
+</body>
+</html>

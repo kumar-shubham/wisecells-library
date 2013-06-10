@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css">
+<link rel="stylesheet" type="text/css" href="./../../bootstrap/css/bootstrap.css">
+{% load bootstrap_toolkit %}
+</head>
+<body>
+	<div id="wrap" class="container clearfix" data-role="page">
+	<div class="navbar ">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          
+          <div class="nav-collapse">
+            <ul class="nav">
+            	<li><a href="/library/">Home</a></li>
+              <li class="active"><a href="/library/details/">Student Details</a></li>
+              <li><a href="/library/addbook/">Add Books</a></li>
+              <li><a href="/library/addstudent/">Add Student</a></li>
+            </ul>
+            <p class="navbar-text pull-right">
+           		Logged In as <font color=brown>{{user}}</font> (<a href="/logout/">Logout?</a>)
+            	</p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+   
+   					 <form class="form-inline" action="/library/details/" method="post">{% csrf_token %}
+    				<label>Enter Student-ID to get details: </label>
+    				<input type="text" class="input-medium" name="sid" placeholder="Enter Student-ID"></input>
+    				<button type="submit" class="btn btn-primary">Get Details</button>
+    				</form>
+    		
+
+<h3>Hello!!! <font color=orange>{{ student }}</font></h3>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% if books %}
+	<p><h3> Books Issued to you:</h3></p>
+	<p>
+		<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Books Name</th>
+			<th>Return Book</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for b in books %}
+			<tr>
+				<td>{{ b }}</td>
+				<td>
+					<form method="POST" action="returnbook">
+						{% csrf_token %}
+						<input type="hidden" value="{{b}}" name="b_id"/>
+						<input type="hidden" value="{{student}}" name="s_id"/>
+						<button type="submit" class="btn btn-primary">Return
+							</button></a></td>
+			</tr>
+			</form>
+		{% endfor %}
+	</p>
+{% else %}
+    <p><h3><strong>Well, No details Found</strong></h3</p>
+
+{% endif %}
+</div>
+</body>
+</html>
