@@ -1,8 +1,0 @@
-MOdules installed later:
-
-* == pip install django-
-social_auth>> pip install django-social-auth
-tinymce>> *tinymce
-taggit>> *taggit-autocomplete-modified
-taggit>> *taggit-autosuggest
-mysqldb>> apt-get install mysqldb
